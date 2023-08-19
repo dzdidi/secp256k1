@@ -44,7 +44,7 @@ env:
 jobs:
   docker_cache:
     name: "Build Docker image"
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     steps:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -63,7 +63,7 @@ jobs:
 
   mingw_debian:
     name: ${{ matrix.configuration.job_name }}
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     needs: docker_cache
 
     env:
@@ -238,7 +238,7 @@ jobs:
 
   sage:
     name: "SageMath prover"
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     container:
       image: sagemath/sagemath:latest
       options: --user root
